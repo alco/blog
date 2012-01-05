@@ -1,0 +1,28 @@
+#!/bin/sh
+# Backup the given draft file into 'drafts/archive' dir. Then produce a new
+# post based on the draft.
+
+if [ $# -eq 0 ]; then
+    echo "Usage: post PATH_TO_DRAFT"
+    exit
+fi
+
+# Build all the necessary paths
+script_dir=`dirname $0`
+archive_path="$script_dir/drafts/archive"
+posts_path="$script_dir/posts"
+filename="${1##*/}"
+
+# Backup the draft
+mkdir -p "$archive_path"
+cp "$1" "$archive_path/$filename"
+
+# Move the draft to the 'posts' directory
+date_string=`date "+%Y-%m-%d"`
+title="${filename#*-*-*-}"
+new_title="$date_string-$title"
+final_path="$posts_path/$new_title"
+mv "$1" "$final_path"
+
+# Append current date to the newly created post
+echo "\nDate: `date`" >> "$final_path"
