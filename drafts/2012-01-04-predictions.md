@@ -10,7 +10,7 @@ arrives.
   Haskell, then Clojure will be on its way to become one of the mainstream
   languages like C, Java, Python, or Ruby.
 
-* CoffeScript's user base will surpass that of JavaScript. 
+* CoffeScript's user base will surpass that of JavaScript.
 
 * We will reach a general consensus that in order to manage concurrency we have
   to step away from locks and adopt more intuitive techniques which are easier
@@ -19,7 +19,7 @@ arrives.
 
 * One of Ludum Dare events will record more than 1000 participants. They'll
   have to improve the rating system though. It's kind of impossible for each
-  participant to rate every other game. 
+  participant to rate every other game.
 
 * Although freemium games will certainly dominate the _Top Grossing_ list of
   App Store and similar marketplaces, most sensible people will come to respect
