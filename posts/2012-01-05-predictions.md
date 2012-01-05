@@ -19,7 +19,7 @@ arrives.
 
 * One of Ludum Dare events will record more than 1000 participants. They'll
   have to improve the rating system though. It's kind of impossible for each
-  participant to rate every other game.
+  participant to rate every other participant's game.
 
 * Although freemium games will certainly dominate the _Top Grossing_ list of
   App Store and similar marketplaces, most sensible people will come to respect
