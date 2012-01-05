@@ -1,7 +1,7 @@
 My Predictions for 2012
 =======================
 
-I find it amusing to read other people's predictions made some time in the
+I find it amusing to read other people's predictions made at some date in the
 past: one year, two years, or even a decade ago. I decided to give it a try
 myself. Here's my list of things as we will have witnessed them when 2013
 arrives.
