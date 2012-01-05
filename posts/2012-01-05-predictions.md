@@ -40,3 +40,5 @@ All in all, let's hope the world will be a better place one year from now.
 
 
 Tags: prediction, proglang, technology, gaming, education, politics
+
+Date: Thu Jan  5 17:03:54 EET 2012
