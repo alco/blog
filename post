@@ -22,7 +22,7 @@ date_string=`date "+%Y-%m-%d"`
 title="${filename#*-*-*-}"
 new_title="$date_string-$title"
 final_path="$posts_path/$new_title"
-mv "$1" "$final_path"
+git mv "$1" "$final_path"
 
 # Append current date to the newly created post
 echo "\nDate: `date`" >> "$final_path"
