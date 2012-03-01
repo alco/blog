@@ -72,7 +72,7 @@ day!
     ([link](http://www-formal.stanford.edu/jmc/history/lisp/lisp.html))
 
 * Structure and Interpretation of Computer Programs
-    ([book](http://mitpress.mit.edu/sicp/full-text/book/book.html)
+    ([book](http://mitpress.mit.edu/sicp/full-text/book/book.html) and
      [video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/))
 
 * Practical Common Lisp
@@ -85,7 +85,7 @@ day!
     ([one](http://en.wikibooks.org/wiki/Learning_Clojure) and
      [two](http://en.wikibooks.org/wiki/Clojure_Programming))
 
-* Learn Clojure
+* Learn Clojure website
     ([link](http://learn-clojure.com/))
 
 
