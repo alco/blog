@@ -12,13 +12,14 @@ this [link][1].
 
 Lisp is a very interesting language with rich history and a long-living
 community. Ever since I have first encountered it (which was during my days at
-the university, they had an XLISP implementation installed) it has stuck in
-memory for good. Conceived by John McCarthy in 1958, Lisp was the second
-high-level programming language in common use today (preceded by Fortran). It
-was the first dynamic language and the first language to implement the concept
-of automatic memory management known as garbage collection. The [Wikipedia
-article][2] says that it has also pioneered tree data structures and the
-self-hosting compiler among other things.
+the university, they had an XLISP implementation installed) I couldn't ever
+forget it and occasionally used it write some basic programs. Conceived by John
+McCarthy in 1958, Lisp was the second high-level programming language that is
+still in common use today (preceded by Fortran). It was the first dynamic
+language and the first language to implement the concept of automatic memory
+management known as garbage collection. The [Wikipedia article][2] says that it
+has also pioneered tree data structures and the self-hosting compiler among
+other things.
 
 A number of features are unique to Lisp and have been for a long time since its
 inception. Although it has never enjoyed such widespread adoption as modern
@@ -41,30 +42,31 @@ Here's a short list of some of the most prominent features of Lisp.
   tree types.
 
 * **Dynamic runtime environment**. Every modern dynamic language has a REPL,
-  but it seems to me that it is only used for the purposes of learning and
-  hacking little things.  Lisp was the first language to come with a REPL, and
-  you could launch your program and modify its behavior at runtime with ease.
-  Unheard of!
+  but it seems to me that it is mostly used for the purposes of learning and
+  quick hacking.  Lisp was the first language to come with a REPL: you could
+  launch your program and modify its behavior at runtime with ease. Unheard of!
 
   [2]: http://en.wikipedia.org/wiki/Lisp_(programming_language)
 
 ## Family of Languages ##
 
 Lisp is not a single language, it is a family of languages. Over the course of
-its history literally dozens of dialects have been developed, many of which
-have found their place in a certain field of computing. Among the most
-prominent ones (which I've heard of) are Scheme, Common Lisp, Emacs Lisp, plus
-a few younger ones like Clojure (2007), Nu (2007), and Arc (2008). Also, if I
-recall correctly, Gimp uses a Scheme dialect as its scripting language (which
-some of its users propose to replace with Python :)).
+its history literally dozens of dialects and still more different implementations
+have been developed, many of which have found their place in certain fields of
+computing. Among the most prominent ones (which I've heard of) are Scheme,
+Common Lisp, Emacs Lisp, plus a few younger ones like Clojure (2007), Nu
+(2007), and Arc (2008). Also, if I recall correctly, Gimp uses a Scheme dialect
+as its scripting language (which some of its users propose to replace with
+Python :)).
 
 
 ## Resources ##
 
 This last section of the post contains a list of online resources which I'm
-going to be using actively over the course of this month. Hopefully, some of
-you have found this post useful. Let me know if you'd like to add or correct
-anything or simply ask a question. Thanks.
+going to be using actively over the course of this month. I hope you have found
+this post useful. Let me know if you'd like to add or correct anything. Let us
+have an enjoyable and productive month this March. Good luck and have a nice
+day!
 
 * History of Lisp
     ([link](http://www-formal.stanford.edu/jmc/history/lisp/lisp.html))
