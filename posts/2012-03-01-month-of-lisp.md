@@ -88,6 +88,13 @@ day!
 * Learn Clojure website
     ([link](http://learn-clojure.com/))
 
+* _On Lisp_ by Paul Graham
+    ([link](http://en.wikipedia.org/wiki/On_Lisp))
+
+* 4clojure website — a collection of problems to solve
+    ([link](http://www.4clojure.com/))
+
+_This list has been updated on Friday March 2, 2012._
 
 ---
 Tags: lisp, proglang, learning
