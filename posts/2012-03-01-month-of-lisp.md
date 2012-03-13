@@ -74,7 +74,6 @@ day!
 * Structure and Interpretation of Computer Programs
     ([book](http://mitpress.mit.edu/sicp/full-text/book/book.html) and
      [video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/))
-
   This one is a fundamental work on programming in general. I highly recommend
   at least watching the lectures, they provide many bright ideas and insights
   into the theory of software design and the ways of solving practical
@@ -89,7 +88,6 @@ day!
 
 * Clojure - Functional Programming for the JVM
     ([link](http://java.ociweb.com/mark/clojure/article.html))
-
   A comprehensive and well-written introduction to Clojure.
 
 * Wikibooks on Clojure
@@ -104,7 +102,6 @@ day!
 
 * 4clojure website
     ([link](http://www.4clojure.com/))
-
   An extensive set of problems with multiple levels of difficulty. You can view
   other users' solutions for the problems you have solved yourself.
 
