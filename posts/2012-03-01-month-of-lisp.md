@@ -71,9 +71,9 @@ day!
 * History of Lisp
     ([link](http://www-formal.stanford.edu/jmc/history/lisp/lisp.html))
 
-* Structure and Interpretation of Computer Programs
+* _Structure and Interpretation of Computer Programs_
     ([book](http://mitpress.mit.edu/sicp/full-text/book/book.html) and
-     [video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/))
+     [video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/)).
   This one is a fundamental work on programming in general. I highly recommend
   at least watching the lectures, they provide many bright ideas and insights
   into the theory of software design and the ways of solving practical
@@ -101,13 +101,12 @@ day!
     ([link](http://en.wikipedia.org/wiki/On_Lisp))
 
 * 4clojure website
-    ([link](http://www.4clojure.com/))
+    ([link](http://www.4clojure.com/)).
   An extensive set of problems with multiple levels of difficulty. You can view
   other users' solutions for the problems you have solved yourself.
 
 * ClojureDocs
-    ([link](http://clojuredocs.org/))
-
+    ([link](http://clojuredocs.org/)).
   This is the reference of the Clojure language and its user-contributed
   libraries. The only one you'll ever need.
 
