@@ -75,11 +75,22 @@ day!
     ([book](http://mitpress.mit.edu/sicp/full-text/book/book.html) and
      [video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/))
 
+  This one is a fundamental work on programming in general. I highly recommend
+  at least watching the lectures, they provide many bright ideas and insights
+  into the theory of software design and the ways of solving practical
+  problems. Don't be pushed back by the awkward Scheme syntax, look at what's
+  really important — the content. Also, don't be deceived by the book's
+  publishing date. As modern languages slowly adopt features that Lisp had
+  since its inception (for more than half a century!), many of the problems
+  presented in the book remain relevant for the modern-day industry.
+
 * Practical Common Lisp
     ([link](http://www.gigamonkeys.com/book/))
 
 * Clojure - Functional Programming for the JVM
     ([link](http://java.ociweb.com/mark/clojure/article.html))
+
+  A comprehensive and well-written introduction to Clojure.
 
 * Wikibooks on Clojure
     ([one](http://en.wikibooks.org/wiki/Learning_Clojure) and
@@ -91,10 +102,19 @@ day!
 * _On Lisp_ by Paul Graham
     ([link](http://en.wikipedia.org/wiki/On_Lisp))
 
-* 4clojure website — a collection of problems to solve
+* 4clojure website
     ([link](http://www.4clojure.com/))
 
-_This list has been updated on Friday March 2, 2012._
+  An extensive set of problems with multiple levels of difficulty. You can view
+  other users' solutions for the problems you have solved yourself.
+
+* ClojureDocs
+    ([link](http://clojuredocs.org/))
+
+  This is the reference of the Clojure language and its user-contributed
+  libraries. The only one you'll ever need.
+
+_This list has been updated on Tuesday March 13, 2012._
 
 ---
 Tags: lisp, proglang, learning
