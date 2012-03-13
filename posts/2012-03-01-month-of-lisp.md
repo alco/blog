@@ -71,6 +71,12 @@ day!
 * History of Lisp
     ([link](http://www-formal.stanford.edu/jmc/history/lisp/lisp.html))
 
+* Practical Common Lisp
+    ([link](http://www.gigamonkeys.com/book/))
+
+* _On Lisp_ by Paul Graham
+    ([link](http://en.wikipedia.org/wiki/On_Lisp))
+
 * ***Structure and Interpretation of Computer Programs***
     ([book](http://mitpress.mit.edu/sicp/full-text/book/book.html) and
      [video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/)).
@@ -83,22 +89,9 @@ day!
   since its inception (for more than half a century!), many of the problems
   presented in the book remain relevant for the modern-day industry.
 
-* Practical Common Lisp
-    ([link](http://www.gigamonkeys.com/book/))
-
 * **Clojure - Functional Programming for the JVM**
     ([link](http://java.ociweb.com/mark/clojure/article.html)).
   A comprehensive and well-written introduction to Clojure.
-
-* Wikibooks on Clojure
-    ([one](http://en.wikibooks.org/wiki/Learning_Clojure) and
-     [two](http://en.wikibooks.org/wiki/Clojure_Programming))
-
-* Learn Clojure website
-    ([link](http://learn-clojure.com/))
-
-* _On Lisp_ by Paul Graham
-    ([link](http://en.wikipedia.org/wiki/On_Lisp))
 
 * **4clojure**
     ([link](http://www.4clojure.com/)).
@@ -109,6 +102,13 @@ day!
     ([link](http://clojuredocs.org/)).
   This is the reference of the Clojure language and its user-contributed
   libraries. The only one you'll ever need.
+
+* Wikibooks on Clojure
+    ([one](http://en.wikibooks.org/wiki/Learning_Clojure) and
+     [two](http://en.wikibooks.org/wiki/Clojure_Programming))
+
+* Learn Clojure website
+    ([link](http://learn-clojure.com/))
 
 _This list has been updated on Tuesday March 13, 2012._
 
