@@ -71,7 +71,7 @@ day!
 * History of Lisp
     ([link](http://www-formal.stanford.edu/jmc/history/lisp/lisp.html))
 
-* _Structure and Interpretation of Computer Programs_
+* ***Structure and Interpretation of Computer Programs***
     ([book](http://mitpress.mit.edu/sicp/full-text/book/book.html) and
      [video lectures](http://groups.csail.mit.edu/mac/classes/6.001/abelson-sussman-lectures/)).
   This one is a fundamental work on programming in general. I highly recommend
@@ -86,8 +86,8 @@ day!
 * Practical Common Lisp
     ([link](http://www.gigamonkeys.com/book/))
 
-* Clojure - Functional Programming for the JVM
-    ([link](http://java.ociweb.com/mark/clojure/article.html))
+* **Clojure - Functional Programming for the JVM**
+    ([link](http://java.ociweb.com/mark/clojure/article.html)).
   A comprehensive and well-written introduction to Clojure.
 
 * Wikibooks on Clojure
@@ -100,12 +100,12 @@ day!
 * _On Lisp_ by Paul Graham
     ([link](http://en.wikipedia.org/wiki/On_Lisp))
 
-* 4clojure website
+* **4clojure**
     ([link](http://www.4clojure.com/)).
   An extensive set of problems with multiple levels of difficulty. You can view
   other users' solutions for the problems you have solved yourself.
 
-* ClojureDocs
+* **ClojureDocs**
     ([link](http://clojuredocs.org/)).
   This is the reference of the Clojure language and its user-contributed
   libraries. The only one you'll ever need.
