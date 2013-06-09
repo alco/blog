@@ -35,7 +35,7 @@ So programmers are lazy. I'm lazy too. If I want to hack something together
 quickly, in Erlang I will write
 
 ```erlang
-{ ok, File } = file.open(Path, [read]).
+{ ok, File } = file:open(Path, [read]).
 % ...
 % code that uses `File`
 ```
@@ -48,9 +48,9 @@ Another peculiarity is that `=` is not an assigment operator, it's a match
 operator. The expression on the left matches the one on the right when all
 respective values in the expression on the left are equal to the ones on the
 right. In the example above, we match a tuple with two elements to the return
-value of `file.open()` call. Since our `File` variable is used for the first
+value of `file:open()` call. Since our `File` variable is used for the first
 time there, it will bind to whatever value sitting as the second element of the
-returned tuple is. However, if `file.open()` returns anything other than a
+returned tuple is. However, if `file:open()` returns anything other than a
 tuple with two elements the first of which is the atom `ok`, the match will
 fail and a runtime error will be raised.
 
