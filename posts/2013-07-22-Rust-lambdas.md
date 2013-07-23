@@ -38,7 +38,9 @@ fn main() {
 adder(1) = 6
 ```
 
-A closure is written as a list of arguments between pipes (`|`), followed by an optional return type and a single expression. In the sample above, the compiler is able to infer the return type. Alternatively, we could write all the types ourselves:
+A closure is written as a list of arguments between pipes (`|`), followed by an optional return type and a single expression. In the reference manual, this syntactic construct is actually called a [lambda expression][12], just so you know. We'll continue calling them closures in this post.
+
+In the example above, the compiler is able to infer the return type. Alternatively, we could write all the types ourselves:
 
 ```
 let adder = |x: int| -> int x + a;
@@ -540,6 +542,7 @@ Thanks for reading.
   [9]: https://github.com/mozilla/rust/issues/7966
   [10]: http://static.rust-lang.org/doc/tutorial.html#ownership
   [11]: http://static.rust-lang.org/doc/std/cell.html
+  [12]: http://static.rust-lang.org/doc/rust.html#lambda-expressions
 
 ---
 Tags: rust-lang, lambdas, proglang
