@@ -1,5 +1,5 @@
-Understanding closures in Rust (DRAFT)
-======================================
+Understanding closures in Rust
+==============================
 
 In this post, I'm going to look at closures in Rust: what they are, how they play with the type system, the memory model, and how they compare to lambda expressions in C++11 and blocks in Objective-C. For those of you who don't know, [Rust][1] is an open source and very ambitous systems programming language, currently under active development by Mozilla and contributors.
 
@@ -522,7 +522,7 @@ Let's review everything we've discovered about closures:
 
 ## Comparison with C++11 and Objective-C
 
-Let's take a brief look at how closures are implemented in C-based languages and how the compare to Rust.
+Let's take a brief look at how closures are implemented in C-based languages and how they compare to Rust.
 
 ### Lambda expressions in C++11
 
