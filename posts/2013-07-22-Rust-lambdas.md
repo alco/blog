@@ -520,26 +520,97 @@ Let's review everything we've discovered about closures:
         Owned closure
         Some func
 
-## Comparison with C++11 and Objective-C (WIP)
+## Comparison with C++11 and Objective-C
 
-Closures in Rust fall somewhere between lambda expressions in C++ and blocks in Objective-C.
+Let's take a brief look at how closures are implemented in C-based languages and how the compare to Rust.
+
+### Lambda expressions in C++11
 
 In C++, a lambda is just an object like any other. Passing it around will copy the whole environment from one stack frame to another. If you capture any variable from the lambda's surrounding scope by reference, it is your responsibility to make sure that the variable outlives the lambda. Otherwise, reading from an already dead variable inside the lamdba will result in undefined behavior.
 
-In Objective-C, blocks always start on the stack, but move to the heap after first copy. Capturing by value is always safe, and capturing by reference can be done by specifying the `__block` storage type for individual variables like so:
+Some examples:
 
 ```
+// C++
+std::function<int(int)> get_fn(int c) {
+    int a = 1;
+    int b = 2;
+
+    auto f = [=, &b](int x) { return x - (a + b + c); };
+    return f;
+}
+```
+
+In the code above, we create a lambda that captures all referenced variables by value (`[=]`), but `b` is explicitly captured by reference (`[&b]`). The result stored in the variable `f` has type `std::function<int(int)>` and it is but an ordinary C++ object that implements `operator()`. Since `b` is captured by reference, invoking the returned lambda will yield undefined behavior.
+
+In contrast, Rust closures capture variables automatically (no need to list them inside `[]` like in C++) and _all_ variables are captured by reference. As has already been mentioned, a stack-allocated closure cannot outlive its stack frame, so we have to use `~fn` and `@fn` closures to get the first-class value semantics.
+
+The above code fragment could look like this in Rust:
+
+```
+// Rust
+fn get_fn(c: int) -> @fn(int) -> int {
+    let a = 1;
+    let b = 2;
+
+    //*
+
+    // Need to specify the type explicitly here, because by default &fn closure is
+    // assumed
+    let f: @fn(int) -> int = |x| x - (a + b + c);
+    return f;
+
+    /*/
+
+    // Alternatively, we could skip storing the closure in f. Then type
+    // inference would do the job for us.
+    |x| x - (a + b + c)
+
+    //*/
+}
+```
+
+You can read more about lambda expressions in C++11 [here][14].
+
+### Blocks in Objective-C
+
+Blocks are actually an extension to the C language. They first appeared on OS X and iOS, but are now available in Clang on all platforms it supports. In addition to Clang support, you'll need the runtime support which can been provided for most platforms via a separate googlable library.
+
+Objective-C extends blocks by treating them as objects and by retaining any objects referred to in the block body to make sure they are not freed during the block's lifetime.
+
+Blocks always start on the stack, but move to the heap after the first copy. Values are captured by value: primitive values are copied and objects are retained when referenced and released when the block object is deallocated, so it plays nicely with memory management in Objective-C. Capturing by reference can be done by specifying the `__block` storage type for individual variables like so:
+
+```
+// Objective-C
 typedef int (^BlockType)(void);
 
 BlockType f() {
     __block int a = 0;
-    return Block_copy(^{ a++; return a; });
+    return [^{ a++; return a; } copy];
 }
 ```
 
-To be able to return a block, we copy it to the heap. This means that `a` will be copied to the heap as well and it is safe to reference it inside the block. Subsequent calls to `Block_copy()` will only increase the reference count of the block if it is already on the heap.
+Mutation of `a` inside the block's body will be seen outside it. To be able to return the block, we copy it. This means that `a` will be copied to the heap as well and it is safe to reference it inside the block if when the stack frame for `f` is destroyed. Subsequent calls to the `copy` method will only increase the reference count of the block if it is already on the heap.
 
-In Rust we get neither behavior. We can't pass environments on the stack (there is no `fn` value, we can only get a pointer: `&fn`, `@fn`, or `~fn`), they need to be stored within an owned or a managed box. We can't promote a stack-based environment to the heap either. That is, a `&fn` closure cannot be returned from a function, because its environment lives in the current stack frame that is going to be destroyed after the current function returns. It can however be used for passing the closure as an argument so long as its own stack frame is alive. Returning a closure from a function always involves using `~fn` or `@fn` (except for the trivial case of empty environment).
+Somewhat equivalent code in Rust:
+
+```
+// Rust
+fn f() -> @fn() -> int {
+    let a = @mut 0;
+    || { *a += 1; *a }
+}
+```
+
+You can read more about blocks in Objective-C [here][15] and [here][16].
+
+### Where do Rust closures fall?
+
+Closures in Rust fall somewhere in between lambda expressions in C++ and blocks in Objective-C.
+
+In Rust, we can't pass environments on the stack (there is no `fn` value, we can only get a pointer: `&fn`, `@fn`, or `~fn`), they need to be stored within an owned or a managed box. We can't promote a stack-based environment to the heap either. That is, a `&fn` closure cannot be returned from a function, because its environment lives in the current stack frame that is going to be destroyed after the current function returns. It can however be used for passing the closure as an argument so long as its own stack frame is alive. Returning a closure from a function always involves using `~fn` or `@fn` (except for the trivial case of empty environment).
+
+In a future post, we might look at how to fix those omissions for closures in Rust with user code. But no promises for now, since closures seem to be waiting for some design/implementation changes in the coming months. It is safer to wait for the 0.8 release and see what changes.
 
 ---
 
@@ -562,6 +633,9 @@ Thanks for reading.
   [11]: http://static.rust-lang.org/doc/std/cell.html
   [12]: http://static.rust-lang.org/doc/rust.html#lambda-expressions
   [13]: http://en.wikipedia.org/wiki/Application_binary_interface
+  [14]: http://www.cprogramming.com/c++11/c++11-lambda-closures.html
+  [15]: http://rypress.com/tutorials/objective-c/blocks.html
+  [16]: http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html
 
 ---
 Tags: rust-lang, lambdas, proglang
