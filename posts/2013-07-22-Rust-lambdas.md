@@ -543,7 +543,7 @@ In Rust we get neither behavior. We can't pass environments on the stack (there 
 
 ---
 
-That is all for now. Hopefully, I've given you a glimpse into the underlying mechanics of closures in Rust, and now you have a better understanding of how they work and you'll be able to start using them in your code.
+That is all for now. Hopefully, I've given you a glimpse into the underlying mechanics of closures in Rust.
 
 For any questions regarding this post or any inaccuracies found in it, I'm available at: 1) my email; 2) @true_droid; 3) true_droid in #rust on IRC.
 
