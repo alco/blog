@@ -90,7 +90,7 @@ fn sub(x: int) -> int {
     x - 1
 }
 
-fn doer(a: int, f: &fn(int) -> int) -> int {
+fn doer(a: int, f: extern fn(int) -> int) -> int {
     f(a)
 }
 
@@ -105,7 +105,23 @@ fn main() {
 9
 ```
 
-Nothing surprising here.
+The syntax `extern fn(int) -> int` (which is a synonym for `extern "Rust" fn(int) -> int`) is used to denote a function pointer (at least, for now). This same syntax is also used for pointers to foreign functions. We can ask the compiler what [ABI][13]s it supports by compiling the following code fragment:
+
+```
+fn doer(a: int, f: extern "Rusty" fn(int) -> int) -> int {
+    f(a)
+}
+
+fn main() {}
+
+---
+rust-abi.rs:1:34: 1:36 error: illegal ABI: expected one of [cdecl, stdcall, fastcall, aapcs, Rust, C, rust-intrinsic], found `Rusty`
+rust-abi.rs:1 fn doer(a: int, f: extern "Rusty" fn(int) -> int) -> int {
+                                                ^~
+error: aborting due to previous error
+```
+
+Let's save the topic of foreign functions for another post and continue with closures now.
 
 The `E` component of a closure – its environment – is what makes closures trickier than mere function pointers. In order to pass closures around we need to specify their environments' lifetime. There are three possiblilities: environment on the stack, environment in an owned box, and environment in a managed box.
 
@@ -140,7 +156,7 @@ fn main() {
 5
 ```
 
-Since the closure body does not reference any variables from the outer scope, it is equivalent to an ordinary function. In this case, "passing the closure" means "passing the function pointer" as such closures don't have any more restrictions that ordinary function pointers. We could use either closure type in the code above with the same visible effect.
+Since the closure body does not reference any variables from the outer scope, it is basically equivalent to an ordinary function: such closures don't have any more restrictions than ordinary function pointers. We could use either closure type in the code above with the same visible effect.
 
 Now let's look at a more interesting case of closures that do capture their environments.
 
@@ -181,11 +197,11 @@ error: aborting due to previous error
 
 Oops, that didn't work. But thanks to the verbose output, we can actually understand why it failed. By following each `error` and `note` explanation, we see that because the lifetime of `a` is limited to `get_adder`'s body, we cannot return a closure with borrowed environment because the environment will immediately become invalid.
 
-But that's not the real underlying issue here. Even if we tried capturing the address of a variable with a longer lifetime, the closure's own environment would still be valid only within `get_adder`'s body. That's because the environment of a borrowed closure is always allocated on the stack. This effectively means that such a closure cannot be returned from a function – its environment would be immediately destroyed, and the borrowed pointer to it would become invalid. The only exception to this is the previous example of `|x: int| x + 1` which is a closure without an environment (basically just a function pointer).
+But that's not the real underlying issue here. Even if we tried capturing the address of a variable with a longer lifetime, the closure's own environment would still be valid only within `get_adder`'s body. That's because the environment of a borrowed closure is always allocated on the stack. This effectively means that such a closure cannot be returned from a function – its environment would be immediately destroyed, and the borrowed pointer to it would become invalid. The only exception to this is the previous example of `|x: int| x + 1` which is a closure with empty environment.
 
 So we can't return a borrowed closure and we can't store it in any other structure that outlives the stack frame the closure was defined in. What can we use those closures for?
 
-As the Rust [tutorial][8] mentions, borrowed closures are a perfect fit for passing as arguments to a function. Remember our function pointer example:
+As the Rust [tutorial][8] mentions, borrowed closures are a perfect fit for passing as arguments to a function. Let's look at our function pointer example again:
 
 ```
 fn add(x: int) -> int {
@@ -206,6 +222,8 @@ fn main() {
     println(fmt!("%d", doer(a, sub)));
 }
 ```
+
+I've changed the type of `doer`'s last argument to `&fn` this time. I believe, Rust implicitly coerces function pointers to environment-less closures, thus allowing us to use `&fn` to denote any closure type or a function. The code above still works, so there you go.
 
 We could turn both `add` and `sub` into borrowed closures only if we could guarantee they would outlive any scope they may be used in. It turns out, we can fairly easily provide such a guarantee:
 
@@ -235,9 +253,9 @@ fn main() {
 8
 ```
 
-In the code above, we define two closures that capture `i` and then pass them to `doer`. It is easy to see that both closures outlive the calls to `doer` because `doer` doesn't store the function pointer it is passed, it merely invokes it. Therefore it is legal to use borrowed closure here, it is also the cheapest type of closures for this task: if we used `~fn` or `@fn`, we'd have to pay with a heap allocation.
+In the code above, we define two closures that capture `i` and then pass them to `doer`. It is easy to see that both closures outlive the calls to `doer` because `doer` doesn't store the argument it is passed, it merely invokes it. Therefore it is legal to use borrowed closure here, it is also the cheapest type of closures for this task: if we used `~fn` or `@fn`, we'd have to pay with a heap allocation.
 
-And the fact that we're using closures here allows us to customize `i` without writing multiple functions: because `doer` expects a one-argument function, there would be no way to customize the incremenet value other than by creating a separate function for each one. This pattern is useful for iteration and other stuff: we can construct a closure that references any values in its surrounding scope and pass it to another function that takes a function pointer and has no additional information about the closure's captured values or even of the fact that it is, in fact, a closure.
+And the fact that we're using closures here allows us to customize `i` without writing multiple functions: because `doer` expects a one-argument function, there would be no way to customize the incremenet value other than by creating a separate function for each one. This pattern is useful for iteration and other stuff: we can construct a closure that references any values in its surrounding scope and pass it to another function that takes a `&fn` pointer and has no additional information about the closure's captured values or even of the fact that it is, in fact, a closure.
 
 Let's finish this section off with an example of capturing a mutable variable:
 
@@ -543,6 +561,7 @@ Thanks for reading.
   [10]: http://static.rust-lang.org/doc/tutorial.html#ownership
   [11]: http://static.rust-lang.org/doc/std/cell.html
   [12]: http://static.rust-lang.org/doc/rust.html#lambda-expressions
+  [13]: http://en.wikipedia.org/wiki/Application_binary_interface
 
 ---
 Tags: rust-lang, lambdas, proglang
