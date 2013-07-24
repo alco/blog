@@ -201,7 +201,9 @@ But that's not the real underlying issue here. Even if we tried capturing the ad
 
 So we can't return a borrowed closure and we can't store it in any other structure that outlives the stack frame the closure was defined in. What can we use those closures for?
 
-As the Rust [tutorial][8] mentions, borrowed closures are a perfect fit for passing as arguments to a function. Let's look at our function pointer example again:
+Just to be clear, when I'm referring to "borrowed closures" in this post, I'm talking about closures that have their environment allocated on the stack. This is the default. However, if we were to create a boxed closure (one that has type `~fn` or `@fn` at the time of initialization), it would be perfectly valid to take a borrowed pointer to that and pass it around like any other borrowed pointer.
+
+As the Rust [tutorial][8] mentions, borrowed closures are a perfect fit for passing as arguments to functions. Let's look at our function pointer example again:
 
 ```
 fn add(x: int) -> int {
@@ -617,6 +619,8 @@ That is all for now. Hopefully, I've given you a glimpse into the underlying mec
 
 For any questions regarding this post or any inaccuracies found in it, I'm available at: 1) my email; 2) @true_droid; 3) true_droid in #rust on IRC.
 
+There is a discussion going on over at [reddit][17].
+
 Thanks for reading.
 
   [1]: http://www.rust-lang.org/
@@ -635,6 +639,7 @@ Thanks for reading.
   [14]: http://www.cprogramming.com/c++11/c++11-lambda-closures.html
   [15]: http://rypress.com/tutorials/objective-c/blocks.html
   [16]: http://developer.apple.com/library/ios/#documentation/cocoa/Conceptual/Blocks/Articles/00_Introduction.html
+  [17]: http://www.reddit.com/r/rust/comments/1ivovx/understanding_closures_in_rust/
 
 ---
 Tags: rust-lang, lambdas, proglang
