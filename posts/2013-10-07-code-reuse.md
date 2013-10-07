@@ -1,5 +1,5 @@
-A Theoretical Guide to Code Reuse
-=================================
+On Cross-Platform Development
+=============================
 
 Is cross-platform development even possible?
 
