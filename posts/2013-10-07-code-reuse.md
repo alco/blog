@@ -5,7 +5,7 @@ Is cross-platform development even possible?
 
 It depends on how you define "cross-platform". We need to break it down. There exist several approaches that are predominant today.
 
-### Write once, run anywhere ###
+### 1. Write once, run anywhere ###
 
 This kind of portability is available today, but only to some extent. "Anywhere" really only means multiple operating systems within one category of computing devices, e.g. the 3 major desktop OSes or all mobile OSes. I can only name game development as one truly cross-platform industry to which this approach is the most applicable.
 
@@ -17,7 +17,7 @@ A few concrete examples in this category:
 
 Programming languages that are used in this approach are: C++, Java, C#, JavaScript, Lua. Haxe and Monkey are programming languages of their own that are transpiled to other languages before running.
 
-### Using one language on all target platforms ###
+### 2. Using one language on all target platforms ###
 
 Imagine writing a mobile app in C++. You'll be able to share most of the program's logic between platforms (in some cases this would even include local data store, network code, model code for your views, etc.), but you'll have to write a separate GUI code for each one. Even if you decide to use C++ for GUI, you will need a separate wrapper for whatever language is used on each respective platform (which is a tough task to even try to implement).
 
@@ -29,7 +29,7 @@ Technologies of interest:
 * JavaScript – apart from being the "language of the web", it is also used as a scripting language by some cross-platform frameworks. With [Node.js](http://nodejs.org/) it is also possible to build server-side software.
 * Ruby – one of the popular dynamic languages widely used in the web development community. With things like [MobiRuby](http://mobiruby.org/) it becomes possible to target mobile devices as well, but it's still under development.
 
-### One language/framework for the server, another one for all clients ###
+### 3. One language/framework for the server, another one for all clients ###
 
 _(when the division into server and client parts is applicable)_
 
