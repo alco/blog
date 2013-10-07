@@ -74,4 +74,7 @@ Choose JavaScript if you don't mind being locked into the browser or one of the 
 Choosing any other language will get you through 90% of software development needs in the whole industry. The remaining 10% can be covered by writing separate modules or subsystems in specialized languages/toolkits.
 
 
+---
+Tags: cross-platform, framework, proglang
+
 Date: Mon Oct  7 14:28:03 EEST 2013
