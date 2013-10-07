@@ -14,6 +14,7 @@ A few concrete examples in this category:
 * [Titanium](http://www.appcelerator.com/titanium/) – a framework and development environment that uses JavaScript and targets _iOS, Android, and BlackBerry, as well as hybrid and HTML5_. It is free and open source, with optional paid services.
 * [Xamarin](http://xamarin.com/tour) – a platform based on C# and Mono that lets you target multiple mobile and desktop OSes with single code base. Provides free price tear with limits on the app size.
 * A multitude of free and paid game frameworks: Corona SDK (Lua, 2D, mobile), [Moai](http://getmoai.com/wiki/index.php?title=Moai_Hosts) (Lua, open-source, mobile and desktop), [Haxe](http://haxe.org/) (open source), [Monkey](http://www.monkeycoder.co.nz/Monkey/about.php) (proprietary, mobile and desktop), [Marmalade](http://www.madewithmarmalade.com/marmaladesdk/supported-platforms) (C++, mobile, desktop, and smart tv).
+* C++ or any dynamic language + Qt/GTK/wxWidgets combo provides cross-platform development across the three major desktop OSes: GNU Linux, OS X, Windows. Neither is objectively better than the other one, so the choice here is mostly driven by preference.
 
 Programming languages that are used in this approach are: C++, Java, C#, JavaScript, Lua. Haxe and Monkey are programming languages of their own that are transpiled to other languages before running.
 
